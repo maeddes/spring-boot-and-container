@@ -23,3 +23,23 @@ timeline
 
 ```
 
+```mermaid
+
+timeline
+    title Evolution of Containers and Kubernetes
+
+    1979 : chroot introduced in Unix (First step towards process isolation)
+    2000 : Linux Namespaces introduced (Process and network isolation)
+    2001 : Linux Cgroups proposed (Resource control for processes)
+    2008 : LXC (Linux Containers) introduced (First OS-level container implementation)
+    2013 : Docker 1.0 released (Revolutionizing containerization)
+    2014 : Kubernetes announced by Google (Container orchestration)
+    2015 : Docker Compose and Docker Swarm introduced
+    2017 : Kubernetes becomes a CNCF Graduated Project
+    2018 : Docker adopts Kubernetes in Docker Desktop
+    2019 : Containerd becomes a CNCF Graduated Project
+    2020 : Kubernetes 1.20 deprecates Docker as a runtime
+    2022 : Kubernetes enhances eBPF integration for networking and security
+    2024 : Continued development in AI-driven orchestration and WASM integration
+
+```
