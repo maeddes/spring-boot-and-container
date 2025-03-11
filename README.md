@@ -43,3 +43,25 @@ timeline
     2024 : Continued development in AI-driven orchestration and WASM integration
 
 ```
+
+```mermaid
+
+timeline
+    title Evolution of Cloud Native Buildpacks
+
+    2011 : Heroku introduces Buildpacks (as part of its PaaS)
+    2012 : Cloud Foundry adopts Buildpacks for its own platform (initially based on Heroku's model)
+    2013 : The **Open Buildpack Community** forms around the idea of shared buildpack standards for PaaS platforms
+    2014 : Cloud Foundry & Heroku improve and refine their respective Buildpack ecosystems
+    2015 : Docker starts gaining traction, but no standardized build system yet for containers
+    2017 : **Project Riff** (later known as CNB) begins as a collaborative effort between **Heroku** and **Pivotal** (now VMware)
+    2018 : **Cloud Native Buildpacks (CNB)** announced at **KubeCon** by **Pivotal** and **Heroku** as a new standardized, container-agnostic build system
+    2019 : CNB becomes a **CNCF Sandbox Project** under the **CNCF** (Cloud Native Computing Foundation)
+    2020 : **Cloud Native Buildpacks v1.0** released; several cloud-native platforms adopt CNB, including **Docker**, **Google Cloud**, and **Paketo**
+    2021 : **Paketo Buildpacks** (community-driven project) expands as a key set of CNB buildpacks
+    2021 : CNB standardization grows as cloud-native ecosystem platforms like **Kubernetes** adopt CNB for building containers
+    2022 : **Cloud Foundry Kubernetes Operator** introduced, bringing Cloud Foundry closer to Kubernetes and CNB usage for containerization
+    2023 : **Heroku** continues its support for CNB, while Kubernetes and Docker also rely on CNB for container build processes
+    2024 : CNB continues to mature, expanding its ecosystem, with **Paketo Buildpacks** becoming a key driver of container image standardization
+
+```
