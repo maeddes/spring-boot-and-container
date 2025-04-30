@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="deliveries-0.0.1-SNAPSHOT2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/planetexpress-deliveries/target/deliveries-0.0.1-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
