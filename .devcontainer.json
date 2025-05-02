@@ -1,0 +1,42 @@
+{
+  "name": "Spring Boot Development",
+  "image": "mcr.microsoft.com/devcontainers/universal:latest",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "none",
+      "installMaven": true,
+      "installGradle": true
+    },
+    "ghcr.io/devcontainers-contrib/features/ant-sdkman:2": {},
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+    "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
+    "github-cli": "latest"
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "java.server.launchMode": "Standard",
+        "editor.formatOnSave": true,
+        "java.saveActions.organizeImports": true,
+        "java.format.enabled": true,
+        "java.test.config": {
+          "vmArgs": ["-Dspring.profiles.active=test"]
+        }
+      },
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "vmware.vscode-spring-boot",
+				"vscjava.vscode-java-debug",
+				"vscjava.vscode-spring-initializr",
+        "redhat.vscode-yaml",
+				"redhat.java",
+				"vscjava.vscode-maven",
+				"vscjava.vscode-java-dependency",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+  "forwardPorts": [8080, 8000],
+  "postCreateCommand": "java -version && mvn -version && spring version && echo 'source \"$HOME/.sdkman/bin/sdkman-init.sh\"' >> ~/.bashrc"
+}
