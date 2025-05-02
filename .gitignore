@@ -1,0 +1,41 @@
+# Java class and JAR files
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven and Gradle build output
+target/
+build/
+
+# IDE settings
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.launch
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# MacOS and Windows system files
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Generated files
+generated/
+
+# Backup files
+*~
+*.bak
+
+# Dependency directories (optional, depending on your use case)
+# node_modules/   # if you have any JS frontend
+# .venv/          # for Python virtual environments if present
