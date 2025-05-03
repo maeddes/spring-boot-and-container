@@ -14,10 +14,10 @@ class TestcontainersConfiguration {
     }
     
     @Bean
-    DynamicPropertyRegistrar properties(DockerModelRunnerContainer dmr) {
+    DynamicPropertyRegistrar properties(DockerModelRunnerContainer dockerModelRunnerContainer) {
         return (registrar) -> {
-            registrar.add("spring.ai.openai.base-url", dmr::getOpenAIEndpoint);
-            registrar.add("spring.ai.openai.api-key", () -> "test-api-key");
+            registrar.add("spring.ai.openai.base-url", dockerModelRunnerContainer::getOpenAIEndpoint);
+            registrar.add("spring.ai.openai.api-key", () -> "my-api-key");
             registrar.add("spring.ai.openai.chat.options.model", () -> "ai/gemma3");
         };
     }
