@@ -1,0 +1,44 @@
+services:
+  frontend:
+    image: maeddes/hse25frontend:flask
+    container_name: frontend
+    ports:
+    - 5000:5000
+    environment:
+      API_SERVER_URL: http://backend:8080
+    networks:
+      - shoppingnet
+
+  backend:
+    image: hse-backend:springboot
+    container_name: backend
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/shoppingdb
+      SPRING_DATASOURCE_USERNAME: username
+      SPRING_DATASOURCE_PASSWORD: password 
+    ports:
+    - 3000:3000
+    networks:
+      - shoppingnet
+
+  database:
+    image: postgres:15
+    container_name: database
+    environment:
+      POSTGRES_DB: shoppingdb
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    networks:
+      - shoppingnet
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+
+networks:
+  shoppingnet:
+    external: true
+    
