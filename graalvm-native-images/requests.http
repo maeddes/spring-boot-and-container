@@ -1,0 +1,3 @@
+### Hello from Spring Boot (any mode)
+GET http://localhost:8080/hello
+Accept: text/plain
