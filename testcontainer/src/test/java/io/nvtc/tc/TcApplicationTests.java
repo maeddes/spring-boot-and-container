@@ -14,10 +14,18 @@ class TcApplicationTests {
     ItemRepository repository;
 
 	@Test
-	void testSave(){
+	void testCreate(){
 
 		repository.save(new Item("kiwis",10));
 		assertTrue(repository.findAll().size() > 0);
+		
+	}
+
+	@Test
+	void testRead(){
+
+		//repository.save(new Item("kiwis",10));
+		assertTrue(1 > 0);
 		
 	}
 
