@@ -18,9 +18,9 @@ This will generate:
 `target/graalvm` (binary file)
 
 # Measure times
-| Image Type   | Command                                                                                          | Time   |
-|--------------|--------------------------------------------------------------------------------------------------|--------|
-| JAR          | `time java -jar target/graalvm-0.0.1-SNAPSHOT.jar`                                   | 0.013s |
-| Native Image | `time ./target/graalvm`                                                            | 0.002s |
-| Docker with JAR | `docker build -t graalvm-jar-demo . time docker run graalvm-jar-demo`                            | 0.02s  |
-| Docker with Native Image | `docker build -f Dockerfile.native -t graalvm-native-demo . time docker run graalvm-native-demo` | 0.01s  |
+| Image Type   | Command                                                                                          | Time |
+|--------------|--------------------------------------------------------------------------------------------------|------|
+| JAR          | `time java -jar target/graalvm-0.0.1-SNAPSHOT.jar`                                   | 0.Xs |
+| Native Image | `time ./target/graalvm`                                                            | 0.Xs |
+| Docker with JAR | `docker build -t graalvm-jar-demo . time docker run graalvm-jar-demo`                            | 0.Xs |
+| Docker with Native Image | `docker build -f Dockerfile.native -t graalvm-native-demo . time docker run graalvm-native-demo` | 0.Xs |
