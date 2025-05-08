@@ -17,10 +17,7 @@ import io.nvtc.tc.ItemRepository;
 public class MyRepositoryTest{
 
     @Container
-    static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres")
-            .withDatabaseName("test")
-            .withUsername("test")
-            .withPassword("test");
+    static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres");
 
     @DynamicPropertySource
     static void overrideProps(DynamicPropertyRegistry registry) {
