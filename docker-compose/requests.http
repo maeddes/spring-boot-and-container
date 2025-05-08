@@ -1,0 +1,18 @@
+### Create an item
+POST http://localhost:8080/items
+Content-Type: application/json
+
+{
+  "name": "Laser Gun",
+  "price": 149.99,
+  "quantity": 2
+}
+
+### Get all items
+GET http://localhost:8080/items
+
+### Get item by ID
+GET http://localhost:8080/items/1
+
+### Delete item by ID
+DELETE http://localhost:8080/items/1
