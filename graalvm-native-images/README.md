@@ -1,5 +1,5 @@
 # Run the Application y curl to the hello endpoint
-`./mvnw spring-boot:run`
+`mvn spring-boot:run`
 Go to `requests.http` file and run the `GET` request to the `/hello` endpoint. You should see a response like this:
 ```json
 {
