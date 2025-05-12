@@ -1,31 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-app
+  name: kubernetes-demo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello-app
+      app: kubernetes-demo
   template:
     metadata:
       labels:
-        app: hello-app
+        app: kubernetes-demo
     spec:
       containers:
-        - name: hello
-          image: your-dockerhub-username/kubernetes:latest
+        - name: kubernetes-demo
+          image: kubernetes-demo:latest
           ports:
             - containerPort: 8080
-          readinessProbe:
-            httpGet:
-              path: /hello
-              port: 8080
-            initialDelaySeconds: 2
-            periodSeconds: 3
           livenessProbe:
             httpGet:
-              path: /hello
+              path: /actuator/health/liveness
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
               port: 8080
             initialDelaySeconds: 5
-            periodSeconds: 10
+            periodSeconds: 5

@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: hello-service
+  name: kubernetes-demo
 spec:
   selector:
-    app: hello-app
+    app: kubernetes-demo
   ports:
     - protocol: TCP
       port: 80
       targetPort: 8080
-  type: LoadBalancer
+  type: ClusterIP
