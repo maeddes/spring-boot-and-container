@@ -1,3 +1,4 @@
+kubectl config use-context docker-desktop
 mvn clean package -DskipTests
 docker build -t kubernetes-demo:latest .
 docker images | grep kubernetes-demo
