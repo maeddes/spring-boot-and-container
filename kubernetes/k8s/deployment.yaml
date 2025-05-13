@@ -15,17 +15,20 @@ spec:
       containers:
         - name: kubernetes-demo
           image: kubernetes-demo:latest
+          imagePullPolicy: Never
           ports:
             - containerPort: 8080
           livenessProbe:
+
             httpGet:
               path: /actuator/health/liveness
               port: 8080
-            initialDelaySeconds: 10
-            periodSeconds: 10
+            initialDelaySeconds: 5
+            periodSeconds: 3
+            failureThreshold: 1
           readinessProbe:
             httpGet:
               path: /actuator/health/readiness
               port: 8080
             initialDelaySeconds: 5
-            periodSeconds: 5
+            periodSeconds: 3
