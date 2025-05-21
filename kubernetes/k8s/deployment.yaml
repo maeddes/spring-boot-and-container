@@ -18,8 +18,7 @@ spec:
           imagePullPolicy: Never
           ports:
             - containerPort: 8080
-          livenessProbe:
-
+          livenessProbe: 
             httpGet:
               path: /actuator/health/liveness
               port: 8080
