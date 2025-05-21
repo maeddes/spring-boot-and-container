@@ -22,3 +22,6 @@ GET http://localhost:8080/actuator/health/readiness
 
 ### Comprobar Actuator
 GET http://localhost:8080/actuator/health
+
+### Comprobar Hello Controller
+GET http://localhost:8080/hello
