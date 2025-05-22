@@ -38,6 +38,7 @@ public class ConnectionDetailsController {
 
             map.put("jdbcUrl", jdbc.getJdbcUrl());
             map.put("username", jdbc.getUsername());
+            map.put("password", jdbc.getPassword());
             map.put("driverClassName", jdbc.getDriverClassName());
             
             // Don't include password for security reasons
