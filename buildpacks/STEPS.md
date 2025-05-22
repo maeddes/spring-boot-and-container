@@ -1,6 +1,6 @@
 cd buildpacks 
 
-pack config default-builder paketobuildpacks/builder:base
+pack config default-builder paketobuildpacks/builder-jammy-tiny  
 
 pack build java-image:paketo
 
