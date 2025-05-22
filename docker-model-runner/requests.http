@@ -1,0 +1,3 @@
+### Chat endpoint test
+GET http://localhost:8080/chat?message=what's%20your%20name%3F
+Accept: text/plain

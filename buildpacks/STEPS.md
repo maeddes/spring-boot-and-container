@@ -1,5 +1,10 @@
+cd buildpacks 
+
+pack config default-builder paketobuildpacks/builder:base
 
 pack build java-image:paketo
+
+mvn clean package
 
 jdeps --ignore-missing-deps \
     --recursive  \
