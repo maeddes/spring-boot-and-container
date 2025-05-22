@@ -1,13 +1,13 @@
 ### Simular Liveness DOWN
-POST http://localhost:8080/simulate/liveness/down
+POST http://localhost:80/simulate/liveness/down
 Content-Type: application/json
 
 ### Simular Liveness UP
-POST http://localhost:8080/simulate/liveness/up
+POST http://localhost:80/simulate/liveness/up
 Content-Type: application/json
 
 ### Simular Readiness DOWN
-POST http://localhost:8080/simulate/readiness/down
+POST http://localhost:80/simulate/readiness/down
 Content-Type: application/json
 
 ### Simular Readiness UP
@@ -15,13 +15,13 @@ POST http://localhost:8080/simulate/readiness/up
 Content-Type: application/json
 
 ### Comprobar Liveness (actuator)
-GET http://localhost:8080/actuator/health/liveness
+GET http://localhost:80/actuator/health/liveness
 
 ### Comprobar Readiness (actuator)
-GET http://localhost:8080/actuator/health/readiness
+GET http://localhost:80/actuator/health/readiness
 
 ### Comprobar Actuator
-GET http://localhost:8080/actuator/health
+GET http://localhost:80/actuator/health
 
 ### Comprobar Hello Controller
-GET http://localhost:8080/hello
+GET http://localhost:80/hello

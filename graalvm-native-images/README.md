@@ -7,6 +7,7 @@
 Pre-requisites:
 - Install GraalVM on your local machine
 - Add Spring Boot GraalVM dependencies
+
 ```mvn -Pnative native:compile```
 
 ### Build JAR inside a Docker Image
@@ -21,6 +22,9 @@ pack build graalvm-native-images \
 --builder paketobuildpacks/builder:tiny \
 --env BP_NATIVE_IMAGE=true
 ```
+
+### Comparing built images
+```docker images | grep graalvm```
 
 ## Run Options
 
