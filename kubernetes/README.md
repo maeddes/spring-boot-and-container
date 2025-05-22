@@ -33,6 +33,7 @@ kubectl port-forward deployment/kubernetes-demo 8080:8080
 
 ## Simulate liveness down
 See how it is automatically recovered and available again
+Check the restarts column, it should increase every time we restart
 ```
 http://localhost:80/simulate/liveness/down
 ```
