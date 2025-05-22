@@ -17,17 +17,7 @@ kubectl port-forward deployment/kubernetes-demo 8080:8080
 mvn clean package -DskipTests
 docker build -t kubernetes-demo:latest .
 kubectl apply -f k8s/
-watch kubectl get pods -w
-```
-
-## Start a recurrent call
-```
-watch -n 1 curl http://localhost:8080/actuator/health
-```
-
-## Scale pods and see how load balancer works managing the traffic
-```
-kubectl scale deployment <deployment> --replicas=3
+kubectl get pods -w
 ```
 
 ## Simulate readiness down
@@ -36,13 +26,13 @@ Check the recurrent call where the traffic is balanced between the available and
 ```
 curl -X POST http://localhost:8080/internal/readiness/false
 ```
+## Port forward
+```
+kubectl port-forward deployment/kubernetes-demo 8080:8080
+```
+
 ## Simulate liveness down
 See how it is automatically recovered and available again
 ```
 http://localhost:80/simulate/liveness/down
-```
-
-## Port forward
-```
-kubectl port-forward deployment/kubernetes-demo 8080:8080
 ```
