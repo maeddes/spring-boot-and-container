@@ -1,26 +1,45 @@
-# Run the Application y curl to the hello endpoint
-`mvn spring-boot:run`
-Go to `requests.http` file and run the `GET` request to the `/hello` endpoint. You should see a response like this:
-```json
-{
-  "message": "Hello from Spring! 👋"
-}
+## Build Options
+
+### Traditional JAR
+```mvn clean package```
+
+### Build Native Image
+Pre-requisites:
+- Install GraalVM on your local machine
+- Add Spring Boot GraalVM dependencies
+```mvn -Pnative native:compile```
+
+### Build JAR inside a Docker Image
+```mvn spring-boot:build-image```
+
+### Build Native Image inside a Docker Image
+```mvn spring-boot:build-image -Pnative -Dspring-boot.build-image.imageName=graalvm-demo:native```
+
+### Build with Pack
+```
+pack build graalvm-native-images \
+--builder paketobuildpacks/builder:tiny \
+--env BP_NATIVE_IMAGE=true
 ```
 
-# Compile JAR and Native Image and Test
-1. Package JAR
-`mvn clean package`
-2. Compile Native Image
-`mvn -Pnative native:compile`
+## Run Options
 
-This will generate:
-`target/graalvm-1.0-SNAPSHOT.jar` (JAR file)
-`target/graalvm` (binary file)
+### Run Traditional JAR
+```java -jar target/graalvm-0.0.1-SNAPSHOT.jar```
 
-# Measure times
-| Image Type   | Command                                                                                          | Time |
-|--------------|--------------------------------------------------------------------------------------------------|------|
-| JAR          | `time java -jar target/graalvm-0.0.1-SNAPSHOT.jar`                                   | 0.Xs |
-| Native Image | `time ./target/graalvm`                                                            | 0.Xs |
-| Docker with JAR | `docker build -t graalvm-jar-demo . time docker run graalvm-jar-demo`                            | 0.Xs |
-| Docker with Native Image | `docker build -f Dockerfile.native -t graalvm-native-demo . time docker run graalvm-native-demo` | 0.Xs |
+### Run Native Image
+```./target/graalvm```
+
+### Run JAR inside a Docker Image
+```docker run graalvm:0.0.1-SNAPSHOT```
+
+### Run Native Image inside a Docker Image
+```docker run graalvm-demo:native```
+
+# Measure Startup times
+| Image Type   | Time |
+|--------------|------|
+| JAR          | 0.Xs |
+| Native Image | 0.Xs |
+| Docker with JAR  | 0.Xs |
+| Docker with Native Image  | 0.Xs |
