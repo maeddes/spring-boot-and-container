@@ -20,7 +20,7 @@ Pre-requisites:
 ```
 pack config default-builder paketobuildpacks/builder-jammy-tiny
 pack build graalvm-native-images \
---builder paketobuildpacks/builder:tiny \
+--builder paketobuildpacks/builder-jammy-tiny \
 --env BP_NATIVE_IMAGE=true
 ```
 
