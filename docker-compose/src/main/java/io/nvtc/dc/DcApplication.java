@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DcApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DcApplication.class, args);
+        SpringApplication app = new SpringApplication(DcApplication.class);
+        //app.addListeners(new ConfigReportPrinter());
+        app.run(args);
 	}
 
 }
