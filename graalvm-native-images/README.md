@@ -16,12 +16,16 @@ Pre-requisites:
 ### Build Native Image inside a Docker Image
 ```mvn spring-boot:build-image -Pnative -Dspring-boot.build-image.imageName=graalvm-demo:native```
 
+```
+mvn -Pnative -DskipTests \
+  -Dagentlib:native-image-agent=config-merge-dir=src/main/resources/META-INF/native-image \
+  -Dnative-image.architecture=amd64 \
+  native:compile
+```
+
 ### Build with Pack and Java 21
 ```
 pack config default-builder paketobuildpacks/builder-jammy-tiny
-pack build graalvm-native-images \
---builder paketobuildpacks/builder-jammy-tiny \
---env BP_NATIVE_IMAGE=true
 ```
 
 ### Comparing built images

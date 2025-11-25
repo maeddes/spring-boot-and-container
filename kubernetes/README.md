@@ -19,7 +19,6 @@ docker build -t kubernetes-demo:latest .
 kubectl apply -f k8s/
 kubectl get pods -w
 ```
-
 ## Simulate readiness down
 Check the pods, it should be in a crash loop, not ready.
 Check the recurrent call where the traffic is balanced between the available and healthy pods.

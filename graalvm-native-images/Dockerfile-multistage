@@ -1,0 +1,9 @@
+FROM ghcr.io/graalvm/native-image-community:latest AS builder
+WORKDIR /workspace
+COPY . .
+RUN ./mvnw -Pnative native:compile
+
+FROM debian:bookworm-slim
+WORKDIR /app
+COPY --from=builder /workspace/target/* /app
+CMD ["/app/graalvm"]
