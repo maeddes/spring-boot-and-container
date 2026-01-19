@@ -24,7 +24,7 @@ public class MyRepositoryTest{
         registry.add("spring.datasource.url", postgres::getJdbcUrl);
         registry.add("spring.datasource.username", postgres::getUsername);
         registry.add("spring.datasource.password", postgres::getPassword);
-        System.out.println(" XXX Registry: "+registry);
+        System.out.println("DynamicPropertyRegistry Registry: "+registry);
     }
 
     @Autowired

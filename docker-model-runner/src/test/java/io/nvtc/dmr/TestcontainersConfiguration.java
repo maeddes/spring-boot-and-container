@@ -10,7 +10,8 @@ class TestcontainersConfiguration {
 
     @Bean
     DockerModelRunnerContainer socat() {
-        return new DockerModelRunnerContainer("alpine/socat:1.8.0.1");
+        // Proxy Container  
+        return new DockerModelRunnerContainer("alpine/socat:1.8.0.3");
     }
     
     @Bean
@@ -21,4 +22,6 @@ class TestcontainersConfiguration {
             registrar.add("spring.ai.openai.chat.options.model", () -> "ai/gemma3");
         };
     }
+
+
 }
