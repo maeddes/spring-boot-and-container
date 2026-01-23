@@ -5,9 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
-import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
+import org.testcontainers.postgresql.PostgreSQLContainer;
 
 import io.nvtc.tc.Item;
 import io.nvtc.tc.ItemRepository;
@@ -17,7 +17,7 @@ import io.nvtc.tc.ItemRepository;
 public class MyRepositoryTest{
 
     @Container
-    static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres");
+    static PostgreSQLContainer postgres = new PostgreSQLContainer("postgres");
 
     @DynamicPropertySource
     static void overrideProps(DynamicPropertyRegistry registry) {

@@ -1,6 +1,7 @@
 package io.nvtc.tc;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
 
 //@Import(TestcontainersConfiguration.class)
