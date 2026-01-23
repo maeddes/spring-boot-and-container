@@ -10,20 +10,21 @@ import java.util.stream.Collectors;
 
 import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.jdbc.JdbcConnectionDetails;
-import org.springframework.boot.autoconfigure.service.connection.ConnectionDetails;
-import org.springframework.core.annotation.Order;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.stereotype.Component;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.service.connection.ConnectionDetails;
+import org.springframework.boot.jdbc.autoconfigure.JdbcConnectionDetails;
+import org.springframework.boot.sql.init.dependency.DependsOnDatabaseInitialization;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.stereotype.Component;
 
 import jakarta.annotation.PostConstruct;
 
 @Component
+@DependsOnDatabaseInitialization
 public class PropertiesPrinter {
 
     @Autowired
@@ -33,7 +34,7 @@ public class PropertiesPrinter {
     private DataSource dataSource; // Spring Boot auto-configured one
 
     @PostConstruct
-    public void printThings() throws SQLException, JsonProcessingException {
+    public void printThings() throws SQLException, JacksonException {
         printApplicationProperties();
         //printDataSource();
         printConnectionDetails();
@@ -51,8 +52,8 @@ public class PropertiesPrinter {
             try (var reader = new BufferedReader(
                     new InputStreamReader(resource.getInputStream(), StandardCharsets.UTF_8))) {
                 String content = reader.lines()
-                                .filter(line -> line.contains("datasource")) // <-- filter lines containing "datasource"
-                                .collect(Collectors.joining("\n"));
+                        .filter(line -> line.contains("datasource"))
+                        .collect(Collectors.joining("\n"));
 
                 System.out.println("\n==============================");
                 System.out.println("  DATASOURCE.PROPERTIES (in file)");
@@ -66,8 +67,6 @@ public class PropertiesPrinter {
         }
     }
 
-
-
     public void printDataSource() throws SQLException {
         System.out.println("\n==============================");
         System.out.println("  DATASOURCE.PROPERTIES (detected)");
@@ -78,44 +77,30 @@ public class PropertiesPrinter {
         System.out.println("==============================");
     }
 
-
-
-    public void printConnectionDetails() throws JsonProcessingException {
+    public void printConnectionDetails() throws JacksonException {
         Map<String, Object> result = new HashMap<>();
-        
-        connectionDetails.forEach((name, details) -> {
-            result.put(name, extractConnectionDetails(details));
-        });
 
+        connectionDetails.forEach((name, details) -> result.put(name, extractConnectionDetails(details)));
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
-        
-        System.out.println("\n==============================");
 
+        System.out.println("\n==============================");
         System.out.println("  CONNECTION DETAILS");
         System.out.println(mapper.writeValueAsString(result));
         System.out.println("==============================");
-
     }
-    
+
     private Map<String, Object> extractConnectionDetails(ConnectionDetails details) {
         Map<String, Object> map = new HashMap<>();
         map.put("type", details.getClass().getName());
-        
-        // Extract specific properties based on ConnectionDetails type
-        if (details instanceof JdbcConnectionDetails) {
-            JdbcConnectionDetails jdbc = (JdbcConnectionDetails) details;
 
+        if (details instanceof JdbcConnectionDetails jdbc) {
             map.put("jdbcUrl", jdbc.getJdbcUrl());
             map.put("username", jdbc.getUsername());
             map.put("password", jdbc.getPassword());
             map.put("driverClassName", jdbc.getDriverClassName());
-            
-            // Don't include password for security reasons
-        }        
+        }
         return map;
     }
-
-
 }

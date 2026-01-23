@@ -3,7 +3,7 @@ package io.nvtc.dc;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.boot.autoconfigure.jdbc.JdbcConnectionDetails;
+import org.springframework.boot.jdbc.autoconfigure.JdbcConnectionDetails;
 import org.springframework.boot.autoconfigure.service.connection.ConnectionDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,8 +33,7 @@ public class ConnectionDetailsController {
         map.put("type", details.getClass().getName());
         
         // Extract specific properties based on ConnectionDetails type
-        if (details instanceof JdbcConnectionDetails) {
-            JdbcConnectionDetails jdbc = (JdbcConnectionDetails) details;
+        if (details instanceof JdbcConnectionDetails jdbc) {
 
             map.put("jdbcUrl", jdbc.getJdbcUrl());
             map.put("username", jdbc.getUsername());

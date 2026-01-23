@@ -1,5 +1,5 @@
 ### Create an item
-POST http://localhost:8080/items
+POST http://localhost:8090/items
 Content-Type: application/json
 
 {
@@ -9,10 +9,10 @@ Content-Type: application/json
 }
 
 ### Get all items
-GET http://localhost:8080/items
+GET http://localhost:8090/items
 
 ### Get item by ID
-GET http://localhost:8080/items/1
+GET http://localhost:8090/items/1
 
 ### Delete item by ID
-DELETE http://localhost:8080/items/1
+DELETE http://localhost:8090/items/1
