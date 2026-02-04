@@ -1,0 +1,3 @@
+models:
+  llm:
+    model: ai/smollm2

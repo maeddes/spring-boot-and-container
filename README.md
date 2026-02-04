@@ -65,3 +65,5 @@ timeline
     2024 : CNB continues to mature, expanding its ecosystem, with **Paketo Buildpacks** becoming a key driver of container image standardization
 
 ```
+
+
