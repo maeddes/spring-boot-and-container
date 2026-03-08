@@ -1,3 +1,5 @@
+docker ps
+
 docker compose up
 
 mvn spring-boot:run
