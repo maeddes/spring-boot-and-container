@@ -12,11 +12,16 @@ class TestcontainersConfiguration {
 
 	@Bean
 	@ServiceConnection
-	PostgreSQLContainer postgresContainer() {
+	PostgreSQLContainer postgresFirstTestContainer() {
 		return new PostgreSQLContainer(DockerImageName.parse("postgres:latest"));
-			// .withDatabaseName("shoppingdb")
-			// .withUsername("username")
-			// .withPassword("password");
+
+	}
+
+	@Bean
+	@ServiceConnection
+	PostgreSQLContainer postgresSecondTestContainer() {
+		return new PostgreSQLContainer(DockerImageName.parse("postgres:latest"));
+
 	}
 
 }

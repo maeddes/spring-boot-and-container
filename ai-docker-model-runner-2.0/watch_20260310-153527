@@ -1,0 +1,16 @@
+Every 0.1s: kubectl get deploy,rs,pod,svc                                                                        DE-KVXDY6P6JC: 15:35:27
+                                                                                                                           in 0.070s (0)
+NAME                              READY   UP-TO-DATE   AVAILABLE   AGE                                                                  
+deployment.apps/kubernetes-demo   1/2     2            1           3h58m                                                                
+                                                                                                                                        
+NAME                                         DESIRED   CURRENT   READY   AGE                                                            
+replicaset.apps/kubernetes-demo-868c645f74   2         2         1       3h58m                                                          
+                                                                                                                                        
+NAME                                   READY   STATUS    RESTARTS       AGE                                                             
+pod/kubernetes-demo-868c645f74-l6fj6   0/1     Running   2 (2m7s ago)   3h45m                                                           
+pod/kubernetes-demo-868c645f74-xxxk2   1/1     Running   0              34s                                                             
+                                                                                                                                        
+NAME                      TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE                                               
+service/kubernetes        ClusterIP      10.96.0.1       <none>        443/TCP        49d                                               
+service/kubernetes-demo   LoadBalancer   10.104.87.135   localhost     80:30460/TCP   3h58m                                             
+                                                                                                                                        
