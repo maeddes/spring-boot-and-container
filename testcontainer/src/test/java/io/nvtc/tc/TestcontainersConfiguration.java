@@ -17,11 +17,4 @@ class TestcontainersConfiguration {
 
 	}
 
-	@Bean
-	@ServiceConnection
-	PostgreSQLContainer postgresSecondTestContainer() {
-		return new PostgreSQLContainer(DockerImageName.parse("postgres:latest"));
-
-	}
-
 }

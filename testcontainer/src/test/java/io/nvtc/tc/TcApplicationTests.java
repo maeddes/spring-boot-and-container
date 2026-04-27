@@ -6,6 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 
+/*
+
+Default test class that uses the global testcontainer configuration.
+
+*/
+
 @Import(TestcontainersConfiguration.class)
 @SpringBootTest
 class TcApplicationTests {
@@ -24,7 +30,6 @@ class TcApplicationTests {
 	@Test
 	void testRead(){
 
-		//repository.save(new Item("kiwis",10));
 		assertTrue(1 > 0);
 		
 	}

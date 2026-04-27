@@ -1,2 +1,4 @@
+docker ps
+
 mvn test
 
